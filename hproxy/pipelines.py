@@ -21,7 +21,7 @@ class HproxyPipeline(object):
                 raise DropItem("illegal ipaddress in %s" % item)
         except ipaddress.AddressValueError, msg:
             raise DropItem("illegal ipaddress in %s" % item)
-        port = int(item["port"])
+        port = item["port"]
         if port < 0 or port > 65545:
             raise DropItem("illegal port in %s" % item)
         return item

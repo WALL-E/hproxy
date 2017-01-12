@@ -3,6 +3,7 @@ import scrapy
 
 from bs4 import BeautifulSoup
 from hproxy.items import HproxyItem
+import time
 
 
 class ComKxdailiSpider(scrapy.Spider):
@@ -19,5 +20,6 @@ class ComKxdailiSpider(scrapy.Spider):
             tds = tr.findAll('td')
             if len(tds) > 0:
                 item["ip"] = tds[0].string
-                item["port"] = tds[1].string
+                item["port"] = int(tds[1].string)
+                item["timestamp"] = int(time.time())
                 yield item

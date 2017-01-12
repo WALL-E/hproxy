@@ -11,3 +11,4 @@ import scrapy
 class HproxyItem(scrapy.Item):
     ip = scrapy.Field()
     port = scrapy.Field()
+    timestamp = scrapy.Field()
