@@ -66,6 +66,7 @@ ROBOTSTXT_OBEY = True
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'hproxy.pipelines.HproxyPipeline': 300,
+    'scrapymongodb.MongoDBPipeline': 400,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -91,3 +92,8 @@ ITEM_PIPELINES = {
 
 FEED_URI = 'file:///tmp/feeds/%(name)s/%(time)s.csv'
 FEED_FORMAT = 'csv'
+
+MONGODB_SERVER = 'localhost'
+MONGODB_PORT = 27017
+MONGODB_DB = 'scrapy'
+MONGODB_COLLECTION = 'proxy'
